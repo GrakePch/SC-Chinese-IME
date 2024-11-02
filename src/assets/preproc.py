@@ -10,7 +10,10 @@ def txt_to_json(input_file, output_file):
         for line in file:
             # Split each line by '=' to separate the key and value
             if '=' in line:
-                code, character = line.strip().split('=')
+                idx = line.find("=")
+                code = line[0:idx]
+                character = line[idx+1:-1]
+                if character == "\\n": character = "\n"
                 # Add the entry to the dictionary
                 json_data[character] = code
     
