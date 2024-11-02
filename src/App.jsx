@@ -36,14 +36,18 @@ function App() {
 
   return (
     <>
-      <div>
+      <div className="main">
         <textarea id="input-chinese" name="input-chinese" rows="5" onChange={handleInputUpdate} />
+        <div className="control-area">
+          <button id="btn-copy" onClick={copyToClipboard}>
+            复制结果
+          </button>
+          <div>
+            <label htmlFor="toggle-fast-mode">键盘侠模式</label>
+            <input type="checkbox" id="toggle-fast-mode" onChange={(e) => setFastMode(e.target.checked)} />
+          </div>
+        </div>
         <textarea id="ouput-code" name="output-code" rows="5" disabled value={code} />
-        <button id="btn-copy" onClick={copyToClipboard}>
-          复制结果
-        </button>
-        <input type="checkbox" id="toggle-fast-mode" onChange={(e) => setFastMode(e.target.checked)} />
-        <label htmlFor="toggle-fast-mode">键盘侠模式</label>
       </div>
     </>
   );
