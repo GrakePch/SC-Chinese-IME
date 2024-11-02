@@ -20,6 +20,12 @@
   border-radius: 1rem;
 }
 
+.important-message {
+  text-align: left;
+  margin: 0;
+  color: #ff8800;
+}
+
 .control-area {
   display: flex;
   gap: 1rem;

@@ -40,6 +40,7 @@ function App() {
   return (
     <>
       <div className="main">
+        <p className="important-message">本功能建议仅在非公开频道中使用。若用户选择在公共频道中使用本功能，由此产生的任何后果（包括但不限于被其他玩家举报刷屏等），均由用户自行承担。</p>
         <textarea id="input-chinese" name="input-chinese" rows="5" onChange={handleInputUpdate} />
         <div className="control-area">
           <button id="btn-copy" onClick={copyToClipboard}>
