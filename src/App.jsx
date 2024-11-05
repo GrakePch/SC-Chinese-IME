@@ -4,6 +4,9 @@ import dict from "./assets/dict.json";
 import Icon from "@mdi/react";
 import { mdiContentCopy, mdiFire } from "@mdi/js";
 
+function isASCII(str, extended) {
+    return (extended ? /^[\x20-\xFF]*$/ : /^[\x20-\x7F]*$/).test(str);
+}
 
 function App() {
   const [code, setCode] = useState("");
@@ -16,11 +19,11 @@ function App() {
       let v = dict[char];
       if (v) {
         if (isLastEncoded)
-          result += "@" + v;
+          result += "@" + v.toLowerCase();
         else
-          result += " @" + v;
+          result += " @" + v.toLowerCase();
         isLastEncoded = true;
-      } else {
+      } else if (isASCII(char, false)) {
         if (isLastEncoded) 
           result += " " + char;
         else 
