@@ -5,7 +5,8 @@ import Icon from "@mdi/react";
 import { mdiContentCopy, mdiFire } from "@mdi/js";
 
 function isASCII(str, extended) {
-    return (extended ? /^[\x20-\xFF]*$/ : /^[\x20-\x7F]*$/).test(str);
+  if (str==="\n") return true;
+  return (extended ? /^[\x20-\xFF]*$/ : /^[\x20-\x7F]*$/).test(str);
 }
 
 function App() {
@@ -14,7 +15,7 @@ function App() {
   const handleInputUpdate = (e) => {
     let string = e.target.value;
     let result = "";
-    let isLastEncoded = false;
+    let isLastEncoded = true;
     for (const char of string) {
       let v = dict[char];
       if (v) {
