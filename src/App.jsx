@@ -14,8 +14,8 @@ function App() {
   const [fastMode, setFastMode] = useState(false);
   const handleInputUpdate = (e) => {
     let string = e.target.value;
-    let result = "";
-    let isLastEncoded = true;
+    let result = "[zh]";
+    let isLastEncoded = false;
     for (const char of string) {
       let v = dict[char];
       if (v) {
