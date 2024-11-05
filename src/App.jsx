@@ -15,14 +15,16 @@ function App() {
     for (const char of string) {
       let v = dict[char];
       if (v) {
-        result += "@" + v;
+        if (isLastEncoded)
+          result += "@" + v;
+        else
+          result += " @" + v;
         isLastEncoded = true;
       } else {
-        if (isLastEncoded) {
+        if (isLastEncoded) 
           result += " " + char;
-        } else {
+        else 
           result += char;
-        }
         isLastEncoded = false;
       }
     }
